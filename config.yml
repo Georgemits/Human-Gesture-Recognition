@@ -1,6 +1,6 @@
 #--------------------- DB ----------------------
 # DB Connection with the uri (host)
-client: "mongodb+srv://jim_baroutis:jim_baroutis@cluster0.vcu1jbr.mongodb.net/"
+client: "MONGODB CREDENTIALS"
 
 # db name
 db: "aiot_course"
