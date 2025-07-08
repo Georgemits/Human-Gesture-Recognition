@@ -1,0 +1,78 @@
+#--------------------- DB ----------------------
+# DB Connection with the uri (host)
+client: "mongodb+srv://jim_baroutis:jim_baroutis@cluster0.vcu1jbr.mongodb.net/"
+
+# db name
+db: "aiot_course"
+
+# db collection
+col: "data"
+
+
+#--------------------- Dataframe Instantiation ----------------------
+# Dataframe columns list
+order: ["X", "Y", "Z"]
+rename: ["acc_x", "acc_y", "acc_z"]
+
+
+#--------------------- Dataset Local Storage ----------------------
+# dataset location
+data_path: "C:/lessons/AIOT/data"
+# single data instance location path to experiment with the data engineering process and visualization
+single_instance_path: "C:/lessons/AIOT/data/nose rubbing/classC_1.csv"
+
+
+#--------------------- Data Engineering ----------------------
+# sliding window algorithm parameters
+sliding_window:
+  ws: 20
+  overlap: 20
+  w_type: "hann"
+  w_center: True
+  print_stats: True
+
+# window to handle for visualization purposes
+x_number: 2
+
+# filtering parameterization
+filter:
+  order: 4
+  wn: 0.1
+  type: "lowpass"
+
+
+#--------------------- $ Data Preparation ----------------------
+# Dimensionality reduction
+PCA:
+  n_comp: 3
+
+
+#--------------------- Learning ----------------------
+# Classifier - Statistical
+classifier:
+  SVC:
+    C: 1 
+    kernel: "rbf"
+    gamma: "scale"
+  # classifier 2
+    # put your other Statistical-related classifier params here
+  RandomForest:
+  n_estimators: 100
+
+  # classifier 3
+    # put your other Statistical-related classifier params here
+
+# Parameter Grid for Fine-tuning, for instance, a Grid Search classifier
+fine_tune:
+  param_grid: [
+    #{'C': [1, 10, 100, 1000], 'kernel': ['linear']},
+    {'C': [0.1, 1, 10], 'gamma': ['scale', 0.01, 0.1, 1], 'kernel': ['rbf']},
+   ]
+  cv: 3
+  verbose: 1
+
+# Classifier - Neural Network
+fit:
+  epochs:
+  batch:
+  verbose: "auto"
